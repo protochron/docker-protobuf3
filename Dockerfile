@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER protochron@gmail.com
 
 ARG cores=1
-ENV PROTOBUF_TAG v3.0.0-beta-3.1
+ENV PROTOBUF_TAG v3.0.0
 
 RUN apk add --update curl git go build-base autoconf automake libtool && \
   git clone https://github.com/google/protobuf -b $PROTOBUF_TAG --depth 1 && \
@@ -23,4 +23,3 @@ ENV PATH $GOPATH/bin:$PATH
 RUN go get -a github.com/golang/protobuf/protoc-gen-go
 
 CMD protoc
-
